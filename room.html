@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chandru | 3D Room</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #d8c7b0;
+        }
+
+        #room {
+            width: 100%;
+            height: 100%;
+        }
+
+        .loading {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #d8c7b0;
+            color: #222;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="loading" id="loading">
+    Loading my room...
+</div>
+
+<div id="room"></div>
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+}
+</script>
+
+<script type="module">
+
+import * as THREE from "three";
+
+import { OrbitControls }
+from "three/addons/controls/OrbitControls.js";
+
+import { GLTFLoader }
+from "three/addons/loaders/GLTFLoader.js";
+
+
+const scene = new THREE.Scene();
+
+scene.background = new THREE.Color(0xd8c7b0);
+
+
+const camera = new THREE.PerspectiveCamera(
+    45,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100
+);
+
+camera.position.set(4, 3, 7);
+
+
+const renderer = new THREE.WebGLRenderer({
+    antialias: true
+});
+
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, 2)
+);
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+renderer.shadowMap.enabled = true;
+
+document
+    .getElementById("room")
+    .appendChild(renderer.domElement);
+
+
+// LIGHT
+
+const ambientLight =
+    new THREE.HemisphereLight(
+        0xfff4df,
+        0x665544,
+        2
+    );
+
+scene.add(ambientLight);
+
+
+const mainLight =
+    new THREE.DirectionalLight(
+        0xffe2b5,
+        3
+    );
+
+mainLight.position.set(4, 7, 4);
+
+mainLight.castShadow = true;
+
+scene.add(mainLight);
+
+
+// CAMERA CONTROLS
+
+const controls =
+    new OrbitControls(
+        camera,
+        renderer.domElement
+    );
+
+controls.enableDamping = true;
+
+controls.enablePan = false;
+
+controls.minDistance = 3;
+
+controls.maxDistance = 10;
+
+controls.target.set(0, 1, 0);
+
+
+// TEMPORARY FLOOR
+
+const floorGeometry =
+    new THREE.PlaneGeometry(20, 20);
+
+const floorMaterial =
+    new THREE.MeshStandardMaterial({
+        color: 0x8b5e3c
+    });
+
+const floor =
+    new THREE.Mesh(
+        floorGeometry,
+        floorMaterial
+    );
+
+floor.rotation.x = -Math.PI / 2;
+
+floor.receiveShadow = true;
+
+scene.add(floor);
+
+
+// 3D MODEL LOADER
+
+const loader = new GLTFLoader();
+
+
+// We will put the real room model here
+// in the next step.
+
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    controls.update();
+
+    renderer.render(
+        scene,
+        camera
+    );
+}
+
+animate();
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
