@@ -27,40 +27,202 @@
 
 <section class="room">
 
-    <div class="room-camera">
+    <div class="room-scene">
 
-        <div class="wall"></div>
+        <!-- WALL -->
+        <div class="wall">
+            <div class="window">
+                <div class="sun"></div>
+            </div>
 
-        <div class="window">
-            <div class="moon"></div>
+            <!-- Education -->
+            <button class="room-item education-item" onclick="openPanel('educationPanel')">
+                🎓
+                <span>Education</span>
+            </button>
+
+            <!-- Plant -->
+            <div class="plant">
+                🪴
+            </div>
         </div>
 
+        <!-- FLOOR -->
         <div class="floor"></div>
 
+        <!-- RUG -->
+        <div class="rug"></div>
+
+        <!-- DESK -->
         <div class="desk">
+
             <div class="desk-top"></div>
-            <div class="desk-leg left"></div>
-            <div class="desk-leg right"></div>
+
+            <!-- LAPTOP = SKILLS -->
+            <button class="room-item laptop" onclick="openPanel('skillsPanel')">
+
+                <div class="laptop-screen">
+                    <span>💻</span>
+                    <strong>SKILLS</strong>
+                    <small>Click me</small>
+                </div>
+
+                <div class="laptop-base"></div>
+
+            </button>
+
+            <!-- BOOKS = PROJECTS -->
+            <button class="room-item books" onclick="openPanel('projectsPanel')">
+                📚
+                <span>Projects</span>
+            </button>
+
+            <!-- LAMP -->
+            <div class="lamp">
+                💡
+            </div>
+
         </div>
 
-        <div class="laptop">
-            <div class="laptop-screen">
-                <div class="screen-content">
-                    <p>B.COM BUSINESS ANALYTICS</p>
-                    <h1>CHANDRU</h1>
-                    <h2>Business Analytics Student</h2>
-                </div>
-            </div>
-            <div class="laptop-base"></div>
+        <!-- PHONE = CONTACT -->
+        <button class="room-item phone" onclick="openPanel('contactPanel')">
+            📱
+            <span>Contact</span>
+        </button>
+
+        <!-- ABOUT -->
+        <button class="room-item door" onclick="openPanel('aboutPanel')">
+            🚪
+            <span>About Me</span>
+        </button>
+
+    </div>
+
+
+    <!-- INTRODUCTION -->
+
+    <div class="room-welcome">
+
+        <p>WELCOME TO MY ROOM</p>
+
+        <h1>Hi, I'm <span>Chandru.</span></h1>
+
+        <h2>Business Analytics Student</h2>
+
+        <p>
+            Click the objects around the room to explore my portfolio.
+        </p>
+
+    </div>
+
+
+    <!-- SKILLS PANEL -->
+
+    <div id="skillsPanel" class="info-panel">
+
+        <button class="close-btn" onclick="closePanels()">×</button>
+
+        <p>01 — SKILLS</p>
+
+        <h2>What I work with</h2>
+
+        <div class="info-grid">
+            <div>SQL</div>
+            <div>Python</div>
+            <div>Excel</div>
+            <div>Statistics</div>
+            <div>Data Analysis</div>
+            <div>Business Analytics</div>
         </div>
 
     </div>
 
-    <div class="room-intro">
-        <p>WELCOME TO MY SPACE</p>
-        <h1>I'm Chandru.</h1>
-        <h2>Business Analytics Student</h2>
-        <a href="#about">ENTER PORTFOLIO →</a>
+
+    <!-- PROJECTS PANEL -->
+
+    <div id="projectsPanel" class="info-panel">
+
+        <button class="close-btn" onclick="closePanels()">×</button>
+
+        <p>02 — PROJECTS</p>
+
+        <h2>Things I've worked on</h2>
+
+        <div class="project-box">
+            <h3>Customer & Order Database</h3>
+            <p>SQL database project using customers, orders and suppliers.</p>
+        </div>
+
+        <div class="project-box">
+            <h3>Business Analytics Project</h3>
+            <p>Business analysis using data to understand business performance.</p>
+        </div>
+
+        <div class="project-box">
+            <h3>Stock Market Analysis</h3>
+            <p>Beginner analysis of stock price movements and indicators.</p>
+        </div>
+
+    </div>
+
+
+    <!-- EDUCATION PANEL -->
+
+    <div id="educationPanel" class="info-panel">
+
+        <button class="close-btn" onclick="closePanels()">×</button>
+
+        <p>03 — EDUCATION</p>
+
+        <h2>My Education</h2>
+
+        <div class="education-box">
+
+            <span>2025 — Present</span>
+
+            <h3>B.Com Business Analytics</h3>
+
+            <p>Undergraduate Degree</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTACT PANEL -->
+
+    <div id="contactPanel" class="info-panel">
+
+        <button class="close-btn" onclick="closePanels()">×</button>
+
+        <p>04 — CONTACT</p>
+
+        <h2>Let's Connect</h2>
+
+        <p>Interested in connecting with me?</p>
+
+        <a href="mailto:yourmail@gmail.com">
+            yourmail@gmail.com
+        </a>
+
+    </div>
+
+
+    <!-- ABOUT PANEL -->
+
+    <div id="aboutPanel" class="info-panel">
+
+        <button class="close-btn" onclick="closePanels()">×</button>
+
+        <p>05 — ABOUT ME</p>
+
+        <h2>Who I am</h2>
+
+        <p>
+            I am a B.Com Business Analytics student interested in
+            Business Analytics, Data Analysis, Technology and Business Strategy.
+        </p>
+
     </div>
 
 </section>
