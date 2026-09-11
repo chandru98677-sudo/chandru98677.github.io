@@ -18,12 +18,15 @@ body {
 header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 20px 8%;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -233,8 +236,7 @@ footer {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    background: #6677c8;
-    color: white;
+    background: transparent;
 }
 
 /* ROOM WALL */
