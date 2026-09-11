@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(11, 11, 11, 0.9);
+    padding: 20px 8%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    opacity: 0.5;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 10%;
+}
+
+.small-title,
+.section-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 130px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    opacity: 0.5;
+}
+
+.hero h2 {
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.intro {
+    max-width: 550px;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 14px 25px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+.second {
+    opacity: 0.6;
+}
+
+section {
+    padding: 120px 10%;
+}
+
+section h2 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin: 20px 0 40px;
+}
+
+section > p:not(.section-title) {
+    max-width: 700px;
+    opacity: 0.7;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill {
+    border: 1px solid #333;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-8px);
+    border-color: white;
+}
+
+.projects {
+    display: grid;
+    gap: 20px;
+}
+
+.project {
+    border-top: 1px solid #333;
+    padding: 35px 0;
+    transition: 0.3s;
+}
+
+.project:hover {
+    padding-left: 20px;
+}
+
+.project span {
+    opacity: 0.4;
+}
+
+.project h3 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.project p {
+    max-width: 600px;
+    opacity: 0.6;
+}
+
+.tech {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.timeline {
+    border-left: 1px solid #555;
+    padding-left: 30px;
+}
+
+.timeline span {
+    opacity: 0.5;
+}
+
+.timeline h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.email {
+    color: white;
+    font-size: 25px;
+}
+
+footer {
+    padding: 40px 10%;
+    border-top: 1px solid #222;
+    opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    section h2 {
+        font-size: 40px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 90px 7%;
+    }
+
+    .hero {
+        padding: 100px 7%;
+    }
+}
